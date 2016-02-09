@@ -12,6 +12,7 @@ matrix:
 script: phpunit --configuration ./tests/phpunit.xml
 
 before_script:
-    - composer self-update
+    - travis_retry composer self-update
+    - travis_retry composer install --no-interaction
     # Create config.ini
     - cp ./config.ini.dist ./config.ini
